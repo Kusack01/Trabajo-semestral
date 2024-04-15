@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba formulario</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/formulario.css">
+</head>
+<body>
+    <form style="max-width: 30%; margin-top: 3rem;margin-left: 3rem;">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+          </div>
+        <div class="mb-3">
+          <label for="apellido" class="form-label">Apellido</label>
+          <input type="text" class="form-control" id="apellido" placeholder="Ingrese su apellido">
+        </div>
+        
+
+        <p>OPCION:</p>
+            <div class="control">
+                <label class="radio">
+                <input type="radio" name="answer" />
+                Si
+                </label>
+                <label class="radio">
+                <input type="radio" name="answer" />
+                No
+                </label>
+            </div>
+
+        <label for="numselect" style="margin-top: 2rem;">Escoge un numero:</label>
+            <select name="seleccion" id="seleccion">
+                <option value="">--Selecciona una opcion--</option>
+                <option value="uno">uno</option>
+                <option value="dos">dos</option>
+                <option value="tres">tres</option>
+                <option value="cuatro">cuatro</option>
+                <option value="cinco">cinco</option>
+                <option value="seis">seis</option>
+            </select>
+
+        <div class="mb-3" style="margin-top: 3rem;">
+            <label for="exampleFormControlTextarea1" class="form-label">Area texto</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+
+        <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+      </form>
+      
+
+
+    <script src="js/bootstrap.min.js" ></script>
+    <script src="https://kit.fontawesome.com/14c4fb98a2.js" crossorigin="anonymous"></script>
+    <script src="js/formulariocomple.js" ></script>
+</body>
+</html>
