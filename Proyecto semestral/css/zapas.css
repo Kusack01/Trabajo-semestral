@@ -1,5 +1,5 @@
 body {
-    background-color: whitesmoke;
+    background-color: #212529;
 }
 
 *::after,
@@ -203,18 +203,17 @@ header{
 
 .slider {
     display: flex;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 21 / 9;
     width: 100%; /* Ajusta el ancho al 100% */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
     border-radius: 0rem;
-    -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
-    scrollbar-width: none; /* Hide scrollbar Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
 .slider::-webkit-scrollbar {
     display: none;
 }
@@ -236,10 +235,10 @@ header{
 }
 
 .slider-nav a {
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.7rem;
+    height: 0.7rem;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: black;
     opacity: 0.75;
     transition: opacity ease 150ms;
 }
@@ -310,7 +309,7 @@ body {
 }
 
 .footer-tagline {
-  color: var(--gray-500);
+  color: #C7BEA0;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -328,6 +327,7 @@ body {
 
 .footer-category {
   color: var(--gray-900);
+  color: #C7BEA0;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -342,16 +342,16 @@ body {
 }
 
 .footer-link {
-  color: var(--gray-600);
+  color: #C7BEA0;
   text-decoration: none;
 }
 
 .footer-link:hover {
-  color: var(--gray-800);
+  color: whitesmoke;
 }
 
 .footer-bottom {
-  background-color: var(--gray-100);
+  background-color: #212121;
 }
 
 .footer-bottom-container {
@@ -366,7 +366,7 @@ body {
 }
 
 .footer-copyright {
-  color: var(--gray-500);
+  color: #C7BEA0;
   font-size: 0.875rem;
   line-height: 1.25rem;
   text-align: center;
@@ -378,8 +378,8 @@ body {
   column-gap: 1rem;
 }
 
-.footer-social-icon {
-  color: var(--gray-500);
+.footer-social-icon{
+  color: whitesmoke;
 }
 
 .footer-social-icon svg {
@@ -415,4 +415,16 @@ body {
   }
 }
 
+.nav-link{
+  color: #C7BEA0;
+}
+.nav-link:hover{
+  color: whitesmoke;
+}
 
+.dropdown-item{
+  color: #C7BEA0;
+}
+.dropdown-item:hover{
+  color: whitesmoke;
+}
