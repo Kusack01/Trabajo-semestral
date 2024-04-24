@@ -1,7 +1,6 @@
 body {
     background-color: #212529;
     font-family: "Inter", sans-serif;
-    cursor: url();
 }
 
 /*CSS DE PRODUCTOS*/
@@ -341,3 +340,32 @@ p{
   margin-bottom: 3rem;
 }
 
+.terminos p{
+  margin: 2rem;
+}
+
+h3{
+  color: #C7BEA0;
+  text-align: center;
+  margin: 1rem;
+  font-size: 1.5rem;
+}
+
+.correo p{
+  font-size: 2rem;
+}
+
+h4{
+  color: #C7BEA0;
+  margin-left: 4rem;
+}
+
+.persoinfo p{
+  text-align: left;
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
+
+.persoinfo i{
+  margin: 10px;
+}
