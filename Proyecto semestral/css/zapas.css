@@ -369,3 +369,35 @@ h4{
 .persoinfo i{
   margin: 10px;
 }
+
+/*inicio de sesion y formulario de registro*/
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  width: 400px;
+  margin: 0 10px;
+}
+
+.card-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
