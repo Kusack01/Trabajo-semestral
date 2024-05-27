@@ -136,7 +136,7 @@ function guardarAlmacenamientoLocal(llave, valor_a_guardar) {
     let mostraProductos = document.getElementById('mostrarProductos')
     mostraProductos.innerHTML = ''
     for (let i = 0; i < productos.length; i++) {
-        mostraProductos.innerHTML += `<div class="contenedorProductos"><img src="${productos[i].urlImagen}"><div class="informacion"><p>${productos[i].nombre}</p><p class="precio"><span>Precio: ${productos[i].valor}$</span></p> Existencia: ${productos[i].existencia}<p></p></div></div>`
+        mostraProductos.innerHTML += `<div class="container-items"><div class="item"><figure><img src="${productos[i].urlImagen}" alt="producto"></figure><div class="info-product"><h2>${productos[i].nombre}</h2><p class="price">$${productos[i].valor}</p><p> Existencia: ${productos[i].existencia}</p></div></div>`
     }
   })
   
