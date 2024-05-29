@@ -48,10 +48,9 @@
         </div>
     </nav>
     <!--aqui esta el modo administrador-->
-    <h1>*Modo administrador*</h1>
-
+    <h1>*Modo administrador*</h1> <span class="style"></span>
     <main>
-        <div class="contenedor">
+        <div class="contenedor">  
             <!-- Añadir -->
             <div class="añadir">
                 <h2>Añadir</h2>
@@ -62,7 +61,7 @@
                     <label>Valor del producto</label>
                     <input type="number" id="valorAñadir" placeholder="Ej: 65000">
 
-                    <label>Existencia</label>
+                    <label>Stock</label>
                     <input type="number" id="existenciaAñadir" placeholder="Ej: 15">
 
                     <label>Url Imagen</label>
@@ -75,12 +74,12 @@
             <div class="editar">
                 <h2>Editar</h2>
                 <form>
-                    <label>Nombre del producto</label>
+                    <label>Seleccione el producto</label>
                     <select id="productoEditar">
                         <option value="">---</option>
                     </select>
 
-                    <label>Atributo</label>
+                    <label>Atributo a editar</label>
                     <select id="atributoEditar">
                         <option value="">---</option>
                     </select>
@@ -97,7 +96,7 @@
                 <h2>Eliminar</h2>
 
                 <form>
-                    <label>Nombre del producto</label>
+                    <label>Seleccione el producto</label>
                     <select id="productoEliminar">
                         <option value="">---</option>
                     </select>
@@ -112,13 +111,12 @@
         </div>
 
         <!-- Productos -->
-        <h2>Productos</h2>
-        <div class="container-items">
-          <div class="item" id="mostrarProductos">
-            <div class="info-product">
-            </div>
+        <div class="contenedorProductos">
+          <h2>Productos</h2>
+          <div class="mostrarProductos" id="mostrarProductos">
+              
           </div>
-        </div>
+      </div>
     </main>
     <!-- aqui comienza el footer -->
     <footer>

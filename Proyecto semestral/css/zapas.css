@@ -466,7 +466,79 @@ option{
   font-size: 40px;
 }
 
+.contenedorProductos{
+  border-radius: 10px;
+}
 
+.mostrarProductos {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 100px;
+  flex-wrap: wrap;
+}
+
+.mostrarProductos>div {
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  background-color: #2D4263;
+  border-radius: 20px;
+}
+
+.informacion {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  color: #C7BEA0;
+  border-radius: 0px 0px 10px 10px;
+  background-color: #000008;
+}
+
+.informacion>p:first-child {
+  font-size: 30px;
+  font-weight: 300;
+  margin-top: 2rem;
+  margin-right: 19rem;
+  margin-bottom: -0.5rem;
+  margin-left: 3px;
+}
+
+
+.informacion .precio {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: -0.5rem;
+  margin-right: 14rem;
+  margin-left: 3px;
+}
+
+h2{
+  color: #C7BEA0;
+}
+
+.foto {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  transition: all 0.25s;
+
+}
+
+#botonEditar{
+  margin-top: 5.8rem;
+}
+
+#botonEliminar{
+  margin-top: 14rem;
+}
+/*FIN PRODUCTOS ADMIN*/
+
+/*INICIO MENSAJE PRODUCTOS*/
 .contenedorMensaje {
   display: flex;
   justify-content: center;
@@ -512,6 +584,7 @@ option{
 ::placeholder{
   color: #C7BEA0;
 }
+/*FIN MENSAJE PRODUCTOS*/
 
 select{
   color: #C7BEA0;
@@ -520,4 +593,3 @@ select{
 input{
   color: #C7BEA0;
 }
-
