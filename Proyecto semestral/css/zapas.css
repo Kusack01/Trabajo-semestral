@@ -385,7 +385,7 @@ h4{
 }
 
 .card-header {
-  background-color: #007bff;
+  background-color: #212529;
   color: white;
   padding: 10px;
 }
@@ -395,12 +395,12 @@ h4{
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #212529;
   border: none;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #212529;
 }
 /*FIN CSS FORMULARIO INICIO DE SESION*/
 
