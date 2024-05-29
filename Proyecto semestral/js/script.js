@@ -49,3 +49,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadProducts();
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const mostrarInicioSesionBtn = document.getElementById('mostrarInicioSesion');
+    const mostrarRegistroBtn = document.getElementById('mostrarRegistro');
+
+    const cardInicioSesion = document.getElementById('cardInicioSesion');
+    const cardRegistro = document.getElementById('cardRegistro');
+
+    mostrarInicioSesionBtn.onclick = function() {
+        cardInicioSesion.style.display = 'block';
+        cardRegistro.style.display = 'none';
+    }
+
+    mostrarRegistroBtn.onclick = function() {
+        cardRegistro.style.display = 'block';
+        cardInicioSesion.style.display = 'none';
+    }
+
+    // Mostrar el inicio de sesión por defecto
+    cardInicioSesion.style.display = 'block';
+
+    const formularioRegistro = document.getElementById('formularioRegistro');
+
+    formularioRegistro.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombreRegistro').value;
+        const correo = document.getElementById('correoRegistro').value;
+        const contrasena = document.getElementById('contrasenaRegistro').value;
+
+        // Validaciones adicionales si es necesario
+
+        // Enviar solicitud POST al backend para enviar el correo
+        fetch('http://localhost:3000/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: nombre,
+                email: correo,
+                password: contrasena // Puedes omitir esto si no es necesario para el correo
+            })
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            alert('Correo de validación enviado. Por favor, revisa tu bandeja de entrada.');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un error al enviar el correo de validación.');
+        });
+    });
+});
