@@ -593,3 +593,13 @@ select{
 input{
   color: #C7BEA0;
 }
+
+#reloj{
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  color: #c7bea0;
+}
+
+#resultado{
+  color: #c7bea0;
+}
