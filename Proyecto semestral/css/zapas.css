@@ -603,3 +603,9 @@ input{
 #resultado{
   color: #c7bea0;
 }
+
+h5{
+  color: #c7bea0;
+  text-align: center;
+  font-size: 30px;
+}
