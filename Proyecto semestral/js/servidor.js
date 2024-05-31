@@ -41,3 +41,13 @@ app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
 });
 
+app.post('/logout', (req, res) => {
+    // Aquí asume que estás usando express-session para manejar sesiones
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).send('Error al cerrar sesión');
+        }
+        res.status(200).send('Cerró sesión correctamente');
+    });
+});
+
