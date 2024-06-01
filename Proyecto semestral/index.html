@@ -79,10 +79,10 @@
               alt="producto"
             />
           </figure>
-          <div class="info-product">
+          <div class="info-product" data-nombre="Adidas Nora Unisex" data-precio="110000" data-stock="10">
             <h2>Adidas Nora Unisex</h2>
             <p class="price">$110.000</p>
-            <button>Añadir al carrito</button>
+            <button class="agregar">Añadir al carrito</button>
           </div>
         </div>
         <div class="item">
@@ -92,10 +92,10 @@
               alt="producto"
             />
           </figure>
-          <div class="info-product">
+          <div class="info-product" data-nombre="Champion Hyper C" data-precio="95000" data-stock="10">
             <h2>Champion Hyper C</h2>
             <p class="price">$95.000</p>
-            <button>Añadir al carrito</button>
+            <button class="agregar">Añadir al carrito</button>
           </div>
         </div>
         <div class="item">
@@ -105,10 +105,10 @@
               alt="producto"
             />
           </figure>
-          <div class="info-product">
+          <div class="info-product" data-nombre="Keds Jump Kick" data-precio="75000" data-stock="10">
             <h2>Keds Jump Kick</h2>
             <p class="price">$75.000</p>
-            <button>Añadir al carrito</button>
+            <button class="agregar">Añadir al carrito</button>
           </div>
         </div>
         <div class="item">
@@ -118,10 +118,10 @@
               alt="producto"
             />
           </figure>
-          <div class="info-product">
+          <div class="info-product" data-nombre="Nike Air Max 90" data-precio="85000" data-stock="10">
             <h2>Nike Air Max 90</h2>
             <p class="price">$85.000</p>
-            <button>Añadir al carrito</button>
+            <button class="agregar">Añadir al carrito</button>
           </div>
         </div>
         <div class="item">
@@ -131,10 +131,10 @@
               alt="producto"
             />
           </figure>
-          <div class="info-product">
+          <div class="info-product" data-nombre="Puma Suede XL" data-precio="90000" data-stock="10">
             <h2>Puma Suede XL</h2>
             <p class="price">$90.000</p>
-            <button>Añadir al carrito</button>
+            <button class="agregar">Añadir al carrito</button>
           </div>
         </div>
         <div class="item">
@@ -144,34 +144,44 @@
               alt="producto"
             />
           </figure>
-          <div class="info-product">
+          <div class="info-product" data-nombre="Under Armour Essential" data-precio="90000" data-stock="10">
             <h2>Under Armour Essential</h2>
             <p class="price">$90.000</p>
-            <button>Añadir al carrito</button>
+            <button class="agregar">Añadir al carrito</button>
           </div>
         </div>
         <div class="item">
           <figure>
-            <img
-              src="img/zapas_vans_oldskool.webp"
-              alt="producto"
-            />
+            <img src="img/zapas_vans_oldskool.webp" alt="producto" />
           </figure>
-          <div class="info-product">
+          <div class="info-product" data-nombre="Vans OldSkool" data-precio="90000" data-stock="10">
             <h2>Vans OldSkool</h2>
             <p class="price">$90.000</p>
-            <button>Añadir al carrito</button>
+            <button class="agregar">Añadir al carrito</button>
           </div>
         </div>
       </div>
-
-      <h1>Mi Mapa</h1>
-      <!-- Div para contener el mapa -->
-      <div id="mapa" style="width: 100%; height: 400px;"></div>
-      <script src="https://maps.googleapis.com/maps/api/js?key=ejemplo"></script>
-
-      <!-- Tu código JavaScript -->
-      <script src="js/maps_api.js"></script>
+        
+        <div id="productos">
+          <div class="producto" data-nombre="Adidas Nora Unisex"></div>
+          <div class="producto" data-nombre="Champion Hyper C"></div>
+          <div class="producto" data-nombre="Keds Jump Kick"></div>
+          <div class="producto" data-nombre="Nike Air Max 90"></div>
+          <div class="producto" data-nombre="Puma Suede XL"></div>
+          <div class="producto" data-nombre="Under Armour Essential"></div>
+          <div class="producto" data-nombre="Vans OldSkool"></div>
+        </div>
+        <h1>Carrito de Compras</h1>
+        <div class="fondo-carrito">
+          <ul id="carrito"></ul>
+          <p id="total">Total: $0</p>
+          <div class="boton-pagar">
+            <button id="pagar">Pagar</button>
+          </div>
+        </div>
+        
+        <script src="js/carrito.js"></script>
+        
 
       <h5>Chiste del Día</h5>
       <div id="chiste"></div>
