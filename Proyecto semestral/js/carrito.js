@@ -1,5 +1,8 @@
 console.log("Esta funcionando")
-const carrito = [];
+const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+// Cargar el carrito almacenado al cargar la página
+document.addEventListener('DOMContentLoaded', actualizarCarrito);
 
 document.querySelectorAll('.agregar').forEach(button => {
     button.addEventListener('click', agregarAlCarrito);
@@ -54,6 +57,7 @@ function actualizarCarrito() {
     });
 
     document.getElementById('total').textContent = `Total: $${total}`;
+    localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
 function pagar() {
