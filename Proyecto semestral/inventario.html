@@ -18,7 +18,7 @@
           <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" style="color: #C7BEA0;" href="index.html">Inicio</a>
+                <a class="nav-link" href="index.html">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="inventario.html">Inventario</a>
@@ -35,8 +35,8 @@
       <div class="container mt-4">
         <h1>Gestión de Inventario</h1>
         <p>Aquí puedes agregar, editar y eliminar productos del inventario.</p>
-        
-        <!-- Ejemplo de formulario de adición de productos -->
+
+        <!-- Formulario de adición de productos -->
         <form id="form-producto">
             <div class="mb-3">
                 <label for="nombreProducto" class="form-label">Nombre del Producto</label>
@@ -53,7 +53,7 @@
             <button type="submit" class="btn btn-primary">Agregar Producto</button>
         </form>
 
-        <!-- Tabla de productos -->
+        <!-- Tabla de productos en inventario -->
         <div class="mt-4">
             <table class="table">
                 <thead>
@@ -94,42 +94,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/14c4fb98a2.js" crossorigin="anonymous"></script>
     <script>
-        // Array para almacenar los productos
-        let productos = [];
+        // Función para cargar productos desde localStorage
+        function cargarProductos() {
+            let productos = JSON.parse(localStorage.getItem('productos')) || [];
+            return productos;
+        }
 
-        // Función para agregar un producto al inventario
-        document.getElementById('form-producto').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            let nombre = document.getElementById('nombreProducto').value.trim();
-            let precio = parseFloat(document.getElementById('precioProducto').value);
-            let stock = parseInt(document.getElementById('stockProducto').value);
-
-            // Validación básica de los campos
-            if (nombre === '' || isNaN(precio) || isNaN(stock)) {
-                alert('Por favor, complete todos los campos correctamente.');
-                return;
-            }
-
-            // Crear objeto de producto
-            let producto = {
-                nombre: nombre,
-                precio: precio,
-                stock: stock
-            };
-
-            // Agregar producto al array
-            productos.push(producto);
-
-            // Limpiar formulario
-            document.getElementById('form-producto').reset();
-
-            // Actualizar tabla de productos
-            actualizarTablaProductos();
-        });
+        // Función para guardar productos en localStorage
+        function guardarProductos(productos) {
+            localStorage.setItem('productos', JSON.stringify(productos));
+        }
 
         // Función para actualizar la tabla de productos
         function actualizarTablaProductos() {
+            let productos = cargarProductos();
             let tablaProductos = document.getElementById('tabla-productos');
             tablaProductos.innerHTML = '';
 
@@ -140,37 +118,97 @@
                                 <td>${producto.precio}</td>
                                 <td>${producto.stock}</td>
                                 <td>
-                                    <button class="btn btn-sm btn-warning" onclick="editarProducto(${index})">Editar</button>
-                                    <button class="btn btn-sm btn-danger" onclick="eliminarProducto(${index})">Eliminar</button>
+                                    <button class="btn btn-warning btn-sm" onclick="editarProducto(${index})">Editar</button>
+                                    <button class="btn btn-danger btn-sm" onclick="eliminarProducto(${index})">Eliminar</button>
                                 </td>
                             </tr>`;
                 tablaProductos.innerHTML += fila;
             });
         }
 
+        // Función para agregar un nuevo producto
+        document.getElementById('form-producto').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let nombre = document.getElementById('nombreProducto').value.trim();
+            let precio = parseFloat(document.getElementById('precioProducto').value);
+            let stock = parseInt(document.getElementById('stockProducto').value);
+
+            // Validaciones
+            if (nombre === '') {
+                alert('El nombre del producto no puede estar vacío.');
+                return;
+            }
+            if (precio <= 0) {
+                alert('El precio debe ser un número positivo.');
+                return;
+            }
+            if (stock < 0) {
+                alert('El stock no puede ser un número negativo.');
+                return;
+            }
+
+            let productos = cargarProductos();
+
+            productos.push({ nombre: nombre, precio: precio, stock: stock });
+
+            guardarProductos(productos);
+            actualizarTablaProductos();
+
+            // Limpiar el formulario
+            document.getElementById('form-producto').reset();
+        });
+
         // Función para editar un producto
         function editarProducto(index) {
+            let productos = cargarProductos();
             let producto = productos[index];
-            if (producto) {
-                document.getElementById('nombreProducto').value = producto.nombre;
-                document.getElementById('precioProducto').value = producto.precio;
-                document.getElementById('stockProducto').value = producto.stock;
 
-                // Eliminar el producto del array temporal
-                productos.splice(index, 1);
+            document.getElementById('nombreProducto').value = producto.nombre;
+            document.getElementById('precioProducto').value = producto.precio;
+            document.getElementById('stockProducto').value = producto.stock;
 
-                // Actualizar tabla de productos
+            // Actualizar el formulario para editar
+            document.getElementById('form-producto').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                producto.nombre = document.getElementById('nombreProducto').value.trim();
+                producto.precio = parseFloat(document.getElementById('precioProducto').value);
+                producto.stock = parseInt(document.getElementById('stockProducto').value);
+
+                // Validaciones
+                if (producto.nombre === '') {
+                    alert('El nombre del producto no puede estar vacío.');
+                    return;
+                }
+                if (producto.precio <= 0) {
+                    alert('El precio debe ser un número positivo.');
+                    return;
+                }
+                if (producto.stock < 0) {
+                    alert('El stock no puede ser un número negativo.');
+                    return;
+                }
+
+                productos[index] = producto;
+                guardarProductos(productos);
                 actualizarTablaProductos();
-            }
+
+                // Limpiar el formulario
+                document.getElementById('form-producto').reset();
+            }, { once: true });
         }
 
         // Función para eliminar un producto
         function eliminarProducto(index) {
+            let productos = cargarProductos();
             productos.splice(index, 1);
-
-            // Actualizar tabla de productos
+            guardarProductos(productos);
             actualizarTablaProductos();
         }
+
+        // Inicializar la tabla de productos
+        actualizarTablaProductos();
     </script>
 </body>
 </html>
