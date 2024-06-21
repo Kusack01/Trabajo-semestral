@@ -1,0 +1,29 @@
+/* erp.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+h1 {
+  color: #333;
+}
+
+.footer-container {
+  background-color: #343a40;
+  color: #C7BEA0;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-title {
+  display: flex;
+  align-items: center;
+}
+
+.footer-title svg {
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
